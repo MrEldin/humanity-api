@@ -21,9 +21,20 @@ $api->version('v1', function ($api) {
         'prefix'     => 'users',
         'as'         => 'users'
     ], function ($api) {
-        $api->post('', UserController::class . '@create')->name('create');
-        $api->put('{id}', UserController::class . '@update')->name('update');
-        $api->get('', UserController::class . '@index')->name('index');
-        $api->get('{id}', UserController::class . '@show')->name('show');
+        $api->post('', UserController::class . '@create')
+            ->name('create')
+            ->middleware('permission:create-user');
+
+        $api->put('{id}', UserController::class . '@update')
+            ->name('update')
+            ->middleware('permission:update-user');
+
+        $api->get('', UserController::class . '@index')
+            ->name('index')
+            ->middleware('permission:index-user');
+
+        $api->get('{id}', UserController::class . '@show')
+            ->name('show')
+            ->middleware('permission:show-user');
     });
 });

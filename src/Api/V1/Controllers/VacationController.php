@@ -4,6 +4,7 @@ namespace Humanity\Api\V1\Controllers;
 
 use Carbon\Carbon;
 use Humanity\Api\V1\Transformers\VacationDateTransformer;
+use Humanity\Entities\Criterias\FilterByItemCriteria;
 use Humanity\Entities\Vacation\Contracts\VacationDateRepository;
 use Humanity\Entities\Vacation\Criterias\ApprovedDatesCriteria;
 use Humanity\Entities\Vacation\Models\VacationDate;
@@ -155,6 +156,12 @@ class VacationController extends Controller
      */
     public function index(VacationRepository $vacationRepository)
     {
+        if(auth()->user()->hasPermissionTo('create-vacation')){
+            $vacationRepository->pushCriteria(
+                new FilterByItemCriteria(Vacation::USER_ID, auth()->user()->{User::ID})
+            );
+        }
+
         return $this->response
             ->collection($vacationRepository->all(), new VacationTransformer())
             ->setStatusCode(Response::HTTP_OK);

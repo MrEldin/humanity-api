@@ -68,7 +68,7 @@
                 }
             }
         },
-        "/api/me": {
+        "/api/user": {
             "get": {
                 "tags": [
                     "auth"
@@ -429,6 +429,47 @@
                     "vacations"
                 ],
                 "summary": "Get vacation",
+                "description": "Get vacation\n    <br> **permission:** _view-vacations_",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "200 OK",
+                        "schema": {
+                            "properties": {
+                                "data": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/definitions/PhaseTransformerV1"
+                                    }
+                                }
+                            },
+                            "type": "object"
+                        }
+                    },
+                    "400": {
+                        "description": "400 Bad Request"
+                    },
+                    "500": {
+                        "description": "500 Internal Server Error"
+                    }
+                },
+                "security": [
+                    {
+                        "jwt": [
+                            "agency-admin"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/api/vacations/total": {
+            "get": {
+                "tags": [
+                    "vacations"
+                ],
+                "summary": "Get total vacation dates",
                 "description": "Get vacation\n    <br> **permission:** _view-vacations_",
                 "produces": [
                     "application/json"

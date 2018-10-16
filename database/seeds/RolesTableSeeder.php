@@ -23,6 +23,10 @@ class RolesTableSeeder extends Seeder
             'disapprove-vacation',
             'index-vacation',
             'show-vacation',
+            'create-user',
+            'update-user',
+            'index-user',
+            'show-user',
         ]);
 
         $userRole = factory(Role::class)->create([

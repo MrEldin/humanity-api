@@ -8,7 +8,7 @@ return [
         |--------------------------------------------------------------------------
         */
 
-        'title' => 'Smartly Jobs Swagger UI',
+        'title' => 'Humanity Vacation App Swagger UI',
     ],
 
     'routes' => [

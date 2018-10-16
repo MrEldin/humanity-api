@@ -61,6 +61,26 @@ class PermissionsTableSeeder extends Seeder
                 Permission::NAME       => 'show-vacation',
                 Permission::LABEL      => 'show vacation',
                 Permission::GUARD_NAME => config('auth.defaults.guard')
+            ],
+            [
+                Permission::NAME       => 'create-user',
+                Permission::LABEL      => 'create user',
+                Permission::GUARD_NAME => config('auth.defaults.guard')
+            ],
+            [
+                Permission::NAME       => 'update-user',
+                Permission::LABEL      => 'update user',
+                Permission::GUARD_NAME => config('auth.defaults.guard')
+            ],
+            [
+                Permission::NAME       => 'index-user',
+                Permission::LABEL      => 'index user',
+                Permission::GUARD_NAME => config('auth.defaults.guard')
+            ],
+            [
+                Permission::NAME       => 'show-user',
+                Permission::LABEL      => 'show vacation',
+                Permission::GUARD_NAME => config('auth.defaults.guard')
             ]
 
         ];

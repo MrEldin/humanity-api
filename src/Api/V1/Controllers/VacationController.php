@@ -233,10 +233,14 @@ class VacationController extends Controller
         );
 
         foreach ($vacationCreateRequest->dates as $date) {
-            $vacation->dates()->create([
-                VacationDate::VACATION_ID => $vacation->{Vacation::ID},
-                VacationDate::DATE        => Carbon::parse($date)
-            ]);
+            $vacationDate = Carbon::parse($date);
+
+            if(!$vacationDate->isWeekday()) {
+                $vacation->dates()->create([
+                    VacationDate::VACATION_ID => $vacation->{Vacation::ID},
+                    VacationDate::DATE        => Carbon::parse($date)
+                ]);
+            }
         }
 
         return $this->response

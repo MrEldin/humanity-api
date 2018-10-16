@@ -9,7 +9,7 @@ use Illuminate\Routing\Controller as BaseController;
  * @SWG\Swagger(
  *   basePath="/api",
  *   @SWG\Info(
- *     title="SMATRLYJOBS API DOCUMENTATION",
+ *     title="HUMANITY VACATION SYSTEM API DOCUMENTATION",
  *     version="1.0.0",
  *   ),
  *     @SWG\SecurityScheme(

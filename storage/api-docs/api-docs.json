@@ -1,7 +1,7 @@
 {
     "swagger": "2.0",
     "info": {
-        "title": "SMATRLYJOBS API DOCUMENTATION",
+        "title": "HUMANITY VACATION SYSTEM API DOCUMENTATION",
         "version": "1.0.0"
     },
     "basePath": "/api",
